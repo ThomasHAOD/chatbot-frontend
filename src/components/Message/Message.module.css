@@ -1,0 +1,11 @@
+.Message {
+  border-radius: 10px;
+}
+
+.Message.Chatbot {
+  color: aquamarine;
+}
+
+.Message.Client {
+  color: #eee;
+}
