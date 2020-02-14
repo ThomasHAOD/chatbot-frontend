@@ -2,4 +2,11 @@
   height: 400px;
   width: 250px;
   background: #ccc;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 20%;
+  margin: 10px;
+  padding: 5px;
+  box-sizing: border-box;
 }

@@ -1,11 +1,14 @@
 .Message {
   border-radius: 10px;
+  background: lightblue;
+  width: 80%;
+  margin-bottom: 4px;
 }
 
 .Message.Chatbot {
-  color: aquamarine;
+  background: aquamarine;
 }
 
 .Message.Client {
-  color: #eee;
+  background: #eee;
 }

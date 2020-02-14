@@ -1,8 +1,9 @@
 .Input {
-  position: relative;
-  top: 380px;
+  position: absolute;
+  bottom: 0px;
   left: 0;
   width: 100%;
+  margin-bottom: 3px;
 }
 
 .Input input {
