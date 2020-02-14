@@ -1,0 +1,11 @@
+.Input {
+  position: relative;
+  top: 380px;
+  left: 0;
+  width: 100%;
+}
+
+.Input input {
+  border-radius: 5px;
+  width: 80%;
+}

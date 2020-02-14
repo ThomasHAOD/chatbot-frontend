@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import classes from "./Chat.module.css";
 
+import Messages from "../../components/Messages/Messages";
+import Input from "../../components/Input/Input";
+
 export class Chat extends Component {
   state = {
     messages: [
@@ -10,7 +13,12 @@ export class Chat extends Component {
   };
 
   render() {
-    return <div className={classes.Chat}></div>;
+    return (
+      <div className={classes.Chat}>
+        <Messages />
+        <Input />
+      </div>
+    );
   }
 }
 
