@@ -8,13 +8,33 @@ const Input = props => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
-    const newMessage = { content: message, sender: "Client", time: "12.38" };
-    props.handleNewMessage(newMessage);
-    setMessage("");
+    if (message) {
+      const timeNow = new Date();
+      const hours = timeNow.getHours();
+      const minutes = timeNow.getMinutes();
+      let timeString = "" + (hours > 12 ? hours - 12 : hours);
+      timeString += (minutes < 10 ? ":0" : ":") + minutes;
+      const newMessage = {
+        content: message,
+        sender: "Client",
+        time: timeString
+      };
+      props.handleNewMessage(newMessage);
+      setMessage("");
+    }
   };
 
   const handleChange = event => {
     setMessage(event.target.value);
+  };
+
+  const handleKeyPress = event => {
+    if (event.key === "Enter") {
+      handleSubmit();
+      setTimeout(() => {
+        setMessage("");
+      }, 10);
+    }
   };
 
   return (
@@ -25,6 +45,7 @@ const Input = props => {
         multiline
         value={message}
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
       <SendIcon onClick={handleSubmit} />
     </form>
