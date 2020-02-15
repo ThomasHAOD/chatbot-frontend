@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import SendIcon from "@material-ui/icons/Send";
 
 import classes from "./Input.module.css";
 
-const input = props => {
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(event.target.value);
+const Input = props => {
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = () => {
+    console.log(message);
+  };
+
+  const handleChange = event => {
+    setMessage(event.target.value);
+    console.log(message);
   };
 
   return (
     <form className={classes.Input}>
-      <TextField label="Message" variant="outlined" multiline />
-      <button onClick={handleSubmit} type="submit">
-        <SendIcon />
-      </button>
+      <TextField
+        label="Message"
+        variant="outlined"
+        multiline
+        value={message}
+        onChange={handleChange}
+      />
+      <SendIcon onClick={handleSubmit} />
     </form>
   );
 };
 
-export default input;
+export default Input;
