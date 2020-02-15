@@ -8,12 +8,13 @@ const Input = props => {
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
-    console.log(message);
+    const newMessage = { content: message, sender: "Client", time: "12.38" };
+    props.handleNewMessage(newMessage);
+    setMessage("");
   };
 
   const handleChange = event => {
     setMessage(event.target.value);
-    console.log(message);
   };
 
   return (

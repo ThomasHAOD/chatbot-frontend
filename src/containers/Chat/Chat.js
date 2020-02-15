@@ -24,11 +24,17 @@ export class Chat extends Component {
     ]
   };
 
+  handleNewMessage = newMessage => {
+    const newMessageArray = [...this.state.messages, newMessage];
+
+    this.setState({ messages: newMessageArray });
+  };
+
   render() {
     return (
       <div className={classes.Chat}>
         <Messages messages={this.state.messages} />
-        <Input />
+        <Input handleNewMessage={this.handleNewMessage} />
       </div>
     );
   }
