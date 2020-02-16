@@ -14,13 +14,6 @@ export class Chat extends Component {
           "Hi! Welcome to Young Scot. I'm Emily. How can I help you today? ",
         sender: "Chatbot",
         time: "12.35"
-      },
-      { text: "Hi, I've lost my card.", sender: "Client", time: "12.36" },
-      {
-        text:
-          "Oh, I'm sorry to hear that. To help get you a new one, could you tell me your name?",
-        sender: "Chatbot",
-        time: "12.37"
       }
     ]
   };
