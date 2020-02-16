@@ -1,10 +1,11 @@
 .Messages {
   height: 80%;
-  width: 100%;
+  width: 95%;
   overflow: auto;
   position: relative;
   display: flex;
   flex-flow: column;
+  margin: 5px;
 }
 
 .Messages::-webkit-scrollbar {

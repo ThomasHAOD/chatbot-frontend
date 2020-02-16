@@ -14,7 +14,7 @@ const message = props => {
 
   return (
     <div className={messageClasses.join(" ")}>
-      <h4>{props.message.content}</h4>
+      <h4>{props.message.text}</h4>
       <p>{props.message.time}</p>
     </div>
   );

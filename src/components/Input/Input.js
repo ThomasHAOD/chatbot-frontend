@@ -15,11 +15,12 @@ const Input = props => {
       let timeString = "" + (hours > 12 ? hours - 12 : hours);
       timeString += (minutes < 10 ? ":0" : ":") + minutes;
       const newMessage = {
-        content: message,
+        text: message,
         sender: "Client",
         time: timeString
       };
       props.handleNewMessage(newMessage);
+
       setMessage("");
     }
   };
