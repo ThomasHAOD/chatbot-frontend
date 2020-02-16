@@ -1,0 +1,14 @@
+.ToggleIcon {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (min-width: 500px) {
+  .ToggleIcon {
+    bottom: 10px;
+    right: 16%;
+  }
+}

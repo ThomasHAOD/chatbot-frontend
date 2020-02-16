@@ -1,28 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import classes from "./Chat.module.css";
 import axios from "axios";
 
+import ToggleIcon from "../../components/ToggleIcon/ToggleIcon";
 import Messages from "../../components/Messages/Messages";
 import Input from "../../components/Input/Input";
 
 export class Chat extends Component {
   state = {
     sessionId: 1,
-    messages: [
-      {
-        text:
-          "Hi! Welcome to Young Scot. I'm Emily. How can I help you today? ",
-        sender: "Chatbot",
-        time: "12.35"
-      }
-    ]
+    messages: [],
+    hidden: true
   };
 
-  handleNewMessage = newMessage => {
-    const newMessageArray = [...this.state.messages, newMessage];
+  componentDidMount() {
+    const initialPost = { text: "Hello" };
+    this.handlePost(initialPost);
+  }
 
-    this.setState({ messages: newMessageArray });
-
+  handlePost = message => {
     const timeNow = new Date();
     const hours = timeNow.getHours();
     const minutes = timeNow.getMinutes();
@@ -31,7 +27,7 @@ export class Chat extends Component {
 
     axios
       .post("https://localhost:5001/api/chatbot/detectintent", null, {
-        params: { text: newMessage.text, sessionId: this.state.sessionId }
+        params: { text: message.text, sessionId: this.state.sessionId }
       })
       .then(res => {
         console.log(res);
@@ -48,12 +44,44 @@ export class Chat extends Component {
       });
   };
 
+  handleNewMessage = newMessage => {
+    const newMessageArray = [...this.state.messages, newMessage];
+
+    this.setState({ messages: newMessageArray });
+
+    this.handlePost(newMessage);
+  };
+
+  handleToggleDisplay = () => {
+    const display = !this.state.hidden;
+    this.setState({ hidden: display });
+  };
+
   render() {
+    // let display = null;
+
+    let attachedClasses = [classes.Chat, classes.Close];
+    if (!this.state.hidden) {
+      attachedClasses = [classes.Chat, classes.Open];
+    }
+
+    // if (!this.state.hidden) {
+    //   display = (
+
+    //   );
+    // }
+
     return (
-      <div className={classes.Chat}>
-        <Messages messages={this.state.messages} />
-        <Input handleNewMessage={this.handleNewMessage} />
-      </div>
+      <Fragment>
+        <div className={attachedClasses.join(" ")}>
+          <Messages messages={this.state.messages} />
+          <Input handleNewMessage={this.handleNewMessage} />
+        </div>
+        <ToggleIcon
+          className={classes.ToggleIcon}
+          toggleDisplay={this.handleToggleDisplay}
+        />
+      </Fragment>
     );
   }
 }
