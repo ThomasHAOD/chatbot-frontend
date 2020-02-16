@@ -33,7 +33,7 @@ const Input = props => {
       handleSubmit();
       setTimeout(() => {
         setMessage("");
-      }, 10);
+      }, 1);
     }
   };
 
@@ -47,7 +47,7 @@ const Input = props => {
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
-      <SendIcon onClick={handleSubmit} />
+      <SendIcon onClick={handleSubmit} className={classes.Icon} />
     </form>
   );
 };

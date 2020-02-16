@@ -1,0 +1,20 @@
+.Messages {
+  height: 80%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+}
+
+.Messages::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.Messages {
+  overflow: -moz-scrollbars-none;
+}
+
+.Messages {
+  -ms-overflow-style: none;
+}
