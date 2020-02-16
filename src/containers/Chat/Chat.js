@@ -5,6 +5,7 @@ import axios from "axios";
 import ToggleIcon from "../../components/ToggleIcon/ToggleIcon";
 import Messages from "../../components/Messages/Messages";
 import Input from "../../components/Input/Input";
+import CloseIcon from "@material-ui/icons/Close";
 
 export class Chat extends Component {
   state = {
@@ -74,6 +75,8 @@ export class Chat extends Component {
     return (
       <Fragment>
         <div className={attachedClasses.join(" ")}>
+          <CloseIcon onClick={this.handleToggleDisplay} />
+
           <Messages messages={this.state.messages} />
           <Input handleNewMessage={this.handleNewMessage} />
         </div>

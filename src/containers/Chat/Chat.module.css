@@ -4,6 +4,7 @@
   background: white;
   margin: 5px;
   transition: all 0.3s ease-out;
+  text-align: right;
 }
 
 .Open {
