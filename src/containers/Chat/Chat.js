@@ -11,7 +11,8 @@ export class Chat extends Component {
   state = {
     sessionId: 1,
     messages: [],
-    hidden: true
+    hidden: true,
+    loadingNewResponse: false
   };
 
   componentDidMount() {
@@ -46,11 +47,19 @@ export class Chat extends Component {
   };
 
   handleNewMessage = newMessage => {
-    const newMessageArray = [...this.state.messages, newMessage];
-
-    this.setState({ messages: newMessageArray });
+    this.setState({ loadingNewResponse: true });
 
     this.handlePost(newMessage);
+
+    const number = Math.floor(Math.random() * 3000);
+
+    setTimeout(() => {
+      this.setState({ loadingNewResponse: false });
+
+      const newMessageArray = [...this.state.messages, newMessage];
+
+      this.setState({ messages: newMessageArray });
+    }, number);
   };
 
   handleToggleDisplay = () => {
@@ -59,18 +68,10 @@ export class Chat extends Component {
   };
 
   render() {
-    // let display = null;
-
     let attachedClasses = [classes.Chat, classes.Close];
     if (!this.state.hidden) {
       attachedClasses = [classes.Chat, classes.Open];
     }
-
-    // if (!this.state.hidden) {
-    //   display = (
-
-    //   );
-    // }
 
     return (
       <Fragment>
@@ -80,7 +81,10 @@ export class Chat extends Component {
             style={{ cursor: "pointer", margin: "5px" }}
           />
 
-          <Messages messages={this.state.messages} />
+          <Messages
+            messages={this.state.messages}
+            loadingNewResponse={this.state.loadingNewResponse}
+          />
           <Input handleNewMessage={this.handleNewMessage} />
         </div>
         <ToggleIcon

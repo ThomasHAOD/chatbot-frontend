@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Message from "./Message/Message";
 import classes from "./Messages.module.css";
+import TypingIndicator from "../TypingIndicator/TypingIndicator";
 
 class Messages extends Component {
   scrollToBottom = () => {
@@ -19,9 +20,16 @@ class Messages extends Component {
     const messageList = this.props.messages.map((message, index) => {
       return <Message message={message} key={index} />;
     });
+
+    let typing = null;
+
+    if (this.props.loadingNewResponse) {
+      typing = <TypingIndicator />;
+    }
     return (
       <div className={classes.Messages}>
         {messageList}
+        {typing}
         <div
           style={{ float: "left", clear: "both" }}
           ref={el => {
