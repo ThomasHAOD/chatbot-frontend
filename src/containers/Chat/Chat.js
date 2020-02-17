@@ -27,39 +27,39 @@ export class Chat extends Component {
     let timeString = "" + (hours > 12 ? hours - 12 : hours);
     timeString += (minutes < 10 ? ":0" : ":") + minutes;
 
-    axios
-      .post("https://localhost:5001/api/chatbot/detectintent", null, {
-        params: { text: message.text, sessionId: this.state.sessionId }
-      })
-      .then(res => {
-        console.log(res);
-        const response = {
-          text: res.data.fulfillmentText,
-          sender: "Chatbot",
-          time: timeString
-        };
-        const messageArrayWithRes = [...this.state.messages, response];
-        this.setState({ messages: messageArrayWithRes });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  handleNewMessage = newMessage => {
-    this.setState({ loadingNewResponse: true });
-
-    this.handlePost(newMessage);
-
     const number = Math.floor(Math.random() * 3000);
 
     setTimeout(() => {
-      this.setState({ loadingNewResponse: false });
+      this.setState({ loadingNewResponse: true });
+      axios
+        .post("https://localhost:5001/api/chatbot/detectintent", null, {
+          params: { text: message.text, sessionId: this.state.sessionId }
+        })
+        .then(res => {
+          console.log(res);
+          const response = {
+            text: res.data.fulfillmentText,
+            sender: "Chatbot",
+            time: timeString
+          };
+          const messageArrayWithRes = [...this.state.messages, response];
 
-      const newMessageArray = [...this.state.messages, newMessage];
-
-      this.setState({ messages: newMessageArray });
+          setTimeout(() => {
+            this.setState({ messages: messageArrayWithRes });
+            this.setState({ loadingNewResponse: false });
+          }, number);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }, number);
+  };
+
+  handleNewMessage = newMessage => {
+    const newMessageArray = [...this.state.messages, newMessage];
+
+    this.setState({ messages: newMessageArray });
+    this.handlePost(newMessage);
   };
 
   handleToggleDisplay = () => {
