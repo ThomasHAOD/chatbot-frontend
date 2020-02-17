@@ -15,6 +15,7 @@
   position: relative;
   margin: 10px;
   bottom: 50px;
+  right: -3px;
 }
 
 @media (min-width: 500px) {
@@ -28,7 +29,7 @@
 
   .Input div {
     border-radius: 5px;
-    width: 80%;
+    width: 85%;
     position: relative;
   }
 
@@ -36,5 +37,6 @@
     position: relative;
     bottom: 0;
     margin: 5px;
+    right: 0;
   }
 }
