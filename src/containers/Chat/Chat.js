@@ -75,7 +75,10 @@ export class Chat extends Component {
     return (
       <Fragment>
         <div className={attachedClasses.join(" ")}>
-          <CloseIcon onClick={this.handleToggleDisplay} />
+          <CloseIcon
+            onClick={this.handleToggleDisplay}
+            style={{ cursor: "pointer", margin: "5px" }}
+          />
 
           <Messages messages={this.state.messages} />
           <Input handleNewMessage={this.handleNewMessage} />

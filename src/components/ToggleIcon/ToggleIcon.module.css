@@ -1,7 +1,7 @@
 .ToggleIcon {
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 15px;
+  right: 15px;
   color: white;
   cursor: pointer;
 }

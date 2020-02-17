@@ -1,18 +1,40 @@
 .Input {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
   width: 100%;
-  margin: 3px;
+  position: absolute;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.Input input {
-  border-radius: 5px;
-  width: 80%;
+.Input div {
+  position: relative;
+  left: 0;
+  width: 90%;
 }
 
 .Icon {
   position: relative;
-  bottom: 0;
-  margin: 5px;
+  margin: 10px;
+  bottom: 50px;
+}
+
+@media (min-width: 500px) {
+  .Input {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    margin: 3px;
+    padding: 0;
+  }
+
+  .Input div {
+    border-radius: 5px;
+    width: 80%;
+    position: relative;
+  }
+
+  .Icon {
+    position: relative;
+    bottom: 0;
+    margin: 5px;
+  }
 }
