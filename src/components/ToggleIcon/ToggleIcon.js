@@ -1,4 +1,4 @@
-import ChatIcon from "@material-ui/icons/Chat";
+import chatIcon from "../../assets/chat.png";
 import Tooltip from "@material-ui/core/Tooltip";
 import classes from "./ToggleIcon.module.css";
 
@@ -8,17 +8,7 @@ const ToggleIcon = props => {
   return (
     <div className={classes.ToggleIcon} onClick={props.toggleDisplay}>
       <Tooltip title="Online Help" arrow>
-        <svg height="30" width="30">
-          <circle
-            cx="15"
-            cy="15"
-            r="20"
-            strokeWidth="3"
-            fill="rgb(0, 129, 238)"
-          />
-
-          <ChatIcon color="inherit" />
-        </svg>
+        <img src={chatIcon} alt="click here for online help" />
       </Tooltip>
     </div>
   );

@@ -1,21 +1,33 @@
+.MessageContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+
+.MessageContainer img {
+  height: 72px;
+  padding: 5px;
+}
+
 .Message {
   border-radius: 10px;
-  max-width: 80%;
+  width: 80%;
   margin-bottom: 4px;
   padding: 5px;
   box-sizing: border-box;
 }
 
 .Chatbot {
-  background: rgb(0, 129, 238);
+  background: #888;
   text-align: left;
   border-bottom-left-radius: 0;
 }
 
 .Client {
   background: #aaa;
-  margin-left: 20%;
+  /* margin-left: ; */
   text-align: right;
+  border-bottom-right-radius: 0;
 }
 
 .Message h4 {
@@ -31,9 +43,9 @@
 
 @media (min-width: 500px) {
   .Message h4 {
-    font-size: 10px;
+    font-size: 12px;
   }
   .Message p {
-    font-size: 8px;
+    font-size: 10px;
   }
 }

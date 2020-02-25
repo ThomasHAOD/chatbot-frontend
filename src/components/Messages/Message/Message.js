@@ -1,6 +1,9 @@
 import React from "react";
 import classes from "./Message.module.css";
 
+import chatbot from "../../../assets/YS_Blether.png";
+import client from "../../../assets/client.png";
+
 const message = props => {
   const messageClasses = [];
 
@@ -12,10 +15,27 @@ const message = props => {
     messageClasses.push(classes.Chatbot);
   }
 
-  return (
-    <div className={messageClasses.join(" ")}>
-      <h4>{props.message.text}</h4>
-      <p>{props.message.time}</p>
+  let image = <img src={client} alt="client" />;
+
+  if (props.message.sender === "Chatbot") {
+    image = <img src={chatbot} alt="bletherbot" />;
+  }
+
+  return props.message.sender === "Chatbot" ? (
+    <div className={classes.MessageContainer}>
+      {image}
+      <div className={messageClasses.join(" ")}>
+        <h4>{props.message.text}</h4>
+        <p>{props.message.time}</p>
+      </div>
+    </div>
+  ) : (
+    <div className={classes.MessageContainer}>
+      <div className={messageClasses.join(" ")}>
+        <h4>{props.message.text}</h4>
+        <p>{props.message.time}</p>
+      </div>
+      {image}
     </div>
   );
 };

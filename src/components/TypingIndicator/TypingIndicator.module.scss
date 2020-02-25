@@ -1,12 +1,22 @@
+.ImageIndicator {
+  display: flex;
+  flex-flow: row;
+}
+
+.ImageIndicator img {
+  padding: 10px;
+  height: 70px;
+}
+
 .TypingIndicator {
   $ti-color-bg: #e6e7ed;
   background-color: $ti-color-bg;
   will-change: transform;
-  width: auto;
+  width: 55px;
   border-radius: 50px;
   padding: 20px;
   display: table;
-  margin: 0 auto;
+  margin: 0;
   position: relative;
   animation: 2s bulge infinite ease-out;
   &::before,

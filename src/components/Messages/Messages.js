@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Message from "./Message/Message";
 import classes from "./Messages.module.css";
 import TypingIndicator from "../TypingIndicator/TypingIndicator";
+import Feedback from "../Feedback/Feedback";
 
 class Messages extends Component {
   scrollToBottom = () => {
@@ -26,10 +27,22 @@ class Messages extends Component {
     if (this.props.loadingNewResponse) {
       typing = <TypingIndicator />;
     }
+
+    let feedback = null;
+
+    if (this.props.showFeedback) {
+      feedback = (
+        <Feedback
+          handleFeedback={this.props.handleFeedback}
+          toggleFeedback={this.props.toggleFeedback}
+        />
+      );
+    }
     return (
       <div className={classes.Messages}>
         {messageList}
         {typing}
+        {feedback}
         <div
           style={{ float: "left", clear: "both" }}
           ref={el => {

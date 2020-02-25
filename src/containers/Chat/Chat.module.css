@@ -6,11 +6,14 @@
   transition: all 0.5s ease-out;
   text-align: right;
   box-sizing: border-box;
-  border: 2px solid orangered;
+  border: 2px solid rgb(221, 15, 128);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .Open {
-  transform: translateY(5%);
+  transform: translateY(0);
 }
 
 .Close {
@@ -28,14 +31,16 @@
 
   .Chat {
     height: 450px;
-    width: 250px;
+    width: 400px;
     border-radius: 10px;
     position: fixed;
-    bottom: 0;
+    bottom: 0 !important;
     right: 20%;
+    top: auto;
+    left: auto;
     margin: 10px;
-    -webkit-box-shadow: -7px -5px 15px -1px rgba(102, 102, 102, 1);
-    -moz-box-shadow: -7px -5px 15px -1px rgba(102, 102, 102, 1);
-    box-shadow: -7px -5px 15px -1px rgba(102, 102, 102, 1);
+    -webkit-box-shadow: -1px -1px 7px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px -1px 7px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px -1px 7px -1px rgba(0, 0, 0, 0.75);
   }
 }
