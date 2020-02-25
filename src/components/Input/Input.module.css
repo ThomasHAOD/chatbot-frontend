@@ -7,6 +7,7 @@
   padding: 0px;
   box-sizing: border-box;
   display: flex;
+  background: white;
 }
 
 .Input div {
@@ -28,6 +29,7 @@
     left: 0;
     margin: 3px;
     padding: 0;
+    background: white;
   }
 
   .Input div {
